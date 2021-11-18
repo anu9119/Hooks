@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ResourceList from "./ResourceList";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// class Apps extends React.Component {
+//   state = {
+//     resourceName: "posts",
+//   };
+
+//   render() {
+//     return (
+//       <>
+//         <button onClick={() => this.setState({ resourceName: "posts" })}>
+//           Posts
+//         </button>
+//         <button onClick={() => this.setState({ resourceName: "todos" })}>
+//           Todos
+//         </button>
+//         <ResourceList resourceName={this.state.resourceName} />
+//       </>
+//     );
+//   }
+// }
+
+const App=()=>{
+    const [ressourceName,setResourceName]=useState('posts');
+
+
+    return (
+      <>
+        <button onClick={() => setResourceName('posts')}>
+          Posts
+        </button>
+        <button onClick={() => setResourceName ('todos')}>
+          Todos
+        </button>
+        <ResourceList resourceName={ressourceName} />
+      </>
+    );
 }
 
 export default App;
